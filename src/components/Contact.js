@@ -9,7 +9,7 @@ const Contact = () => {
 
   const userContact = async () => {
     try {
-      const res = await fetch("/getdata", {
+      const res = await fetch("https://quote-ocean-backend.vercel.app/getdata", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const Contact = () => {
 
     console.log(username, email, phone, userMessage);
 
-    const res = await fetch("/contact", {
+    const res = await fetch("https://quote-ocean-backend.vercel.app/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

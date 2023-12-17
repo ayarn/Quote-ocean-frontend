@@ -29,7 +29,7 @@ const Login = () => {
 
     const { email, password } = loginData;
 
-    const res = await fetch("http://localhost:3000/login", {
+    const res = await fetch("https://quote-ocean-backend.vercel.app/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

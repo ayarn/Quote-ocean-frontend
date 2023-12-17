@@ -11,7 +11,7 @@ const Subscribe = () => {
   // This function checks whether user is logged in or not.
   const callSubscribePage = async () => {
     try {
-      const res = await fetch("/getdata", {
+      const res = await fetch("https://quote-ocean-backend.vercel.app/getdata", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const Subscribe = () => {
     const email = userData.email;
     const subscribed = true;
 
-    const res = await fetch("http://localhost:3000/subscribe", {
+    const res = await fetch("https://quote-ocean-backend.vercel.app/subscribe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
