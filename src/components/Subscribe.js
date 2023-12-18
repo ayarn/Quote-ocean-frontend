@@ -11,12 +11,16 @@ const Subscribe = () => {
   // This function checks whether user is logged in or not.
   const callSubscribePage = async () => {
     try {
-      const res = await fetch("https://quote-ocean-backend.vercel.app/getdata", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://quote-ocean-backend.vercel.app/getdata",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       setUserData(data);
@@ -51,14 +55,17 @@ const Subscribe = () => {
     const email = userData.email;
     const subscribed = true;
 
-    const res = await fetch("https://quote-ocean-backend.vercel.app/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({ emailReceivingTime, email, subscribed }),
-    });
+    const res = await fetch(
+      "https://quote-ocean-backend.vercel.app/subscribe",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ emailReceivingTime, email, subscribed }),
+      }
+    );
 
     const data = await res.json();
 
@@ -92,12 +99,18 @@ const Subscribe = () => {
               <input type="email" id="email" value={userData.email} disabled />
 
               <div className="subscribe-button">
-                <button type="submit" id="btn_subscribe">Subscribe</button>
+                <button type="submit" id="btn_subscribe">
+                  Subscribe
+                </button>
               </div>
             </form>
           </div>
           <div className="subscribe-image">
-            <img src="/subscribe.jpg" className="img-fluid-subscribe" alt="Sample" />
+            <img
+              src="/subscribe.jpg"
+              className="img-fluid-subscribe"
+              alt="Sample"
+            />
           </div>
         </div>
       </div>

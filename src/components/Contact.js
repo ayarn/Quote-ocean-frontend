@@ -9,12 +9,16 @@ const Contact = () => {
 
   const userContact = async () => {
     try {
-      const res = await fetch("https://quote-ocean-backend.vercel.app/getdata", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://quote-ocean-backend.vercel.app/getdata",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       setUserData(data);
@@ -105,7 +109,11 @@ const Contact = () => {
             </form>
           </div>
           <div className="contact-image">
-            <img src="/contact-us.jpg" className="img-fluid-contact" alt="Sample" />
+            <img
+              src="/contact-us.jpg"
+              className="img-fluid-contact"
+              alt="Sample"
+            />
           </div>
         </div>
       </div>
