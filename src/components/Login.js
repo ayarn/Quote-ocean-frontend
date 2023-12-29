@@ -48,7 +48,6 @@ const Login = () => {
       window.alert("Invalid Credentials");
       console.log("Invalid Credentials");
     } else {
-      document.cookie = `jwtoken=${data.token}; path=/;`;
       window.alert("Login Success");
       console.log("Login Success");
 
